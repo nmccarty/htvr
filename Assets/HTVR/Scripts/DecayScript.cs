@@ -42,6 +42,6 @@ public class DecayScript : MonoBehaviour {
             progress = 100;
             decreases = false;
         }
-        Debug.Log(progress);
+        //Debug.Log(progress);
     }
 }
