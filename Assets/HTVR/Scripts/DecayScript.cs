@@ -36,7 +36,12 @@ public class DecayScript : MonoBehaviour {
 
     public void incrementCounter()
     {
-        progress += 1.5;
+        if ( GameObject.Find("Enemy(Clone)") == null)
+        {
+            progress += 1.5;//it exists
+        }
+       
+        
         if(progress > 100)
         {
             progress = 100;
