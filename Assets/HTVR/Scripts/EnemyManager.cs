@@ -3,7 +3,7 @@
 public class EnemyManager : MonoBehaviour
 {
 
-    public GameObject enemy;                // The enemy prefab to be spawned.
+    public GameObject[] enemies;                // The enemy prefab to be spawned.
     public float spawnTime = 3f;            // How long between each spawn.
     public Transform[] spawnPoints;         // An array of the spawn points this enemy can spawn from.
 
@@ -20,8 +20,9 @@ public class EnemyManager : MonoBehaviour
         //Debug.Log("Hello");
         // Find a random index between zero and one less than the number of spawn points.
         int spawnPointIndex = Random.Range(0, spawnPoints.Length);
+        int enemyIndex = Random.Range(0, enemies.Length);
 
         // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
-        Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
+        Instantiate(enemies[enemyIndex], spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
     }
 }

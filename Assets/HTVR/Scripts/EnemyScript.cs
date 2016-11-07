@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnemyScript : MonoBehaviour {
 
+    public int moveSpeed = 1;
 	// Use this for initialization
 	void Start () {
 	
@@ -10,17 +11,28 @@ public class EnemyScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float x = Random.Range(-100, 100)/100.0f;
-        float y = Random.Range(-100, 100) / 100.0f;
-        float z = Random.Range(-100, 100) / 100.0f;
+
+        if(gameObject.name == "Enemy" || gameObject.name == "Enemy2")
+        {
+            return;
+        }
+        float x = Random.Range(0, 100) / (100000.0f / moveSpeed);
+        float y = Random.Range(-100, 100) / (100000.0f / moveSpeed);
+        float z = Random.Range(-100, 100) / (100000.0f / moveSpeed);
 
         Vector3 p = new Vector3(x, y, z);
         gameObject.transform.position += p;
 	}
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
-        if(gameObject.tag == "Enemy(Clone)" && collision.gameObject.tag != "Enemy(Clone)")
+        //if (gameObject.tag == "Enemy(Clone)" && collision.gameObject.tag != "Enemy(Clone)")
+        //{
+        if(gameObject.name != "Enemy" || gameObject.name == "Enemy2")
+        {
             Destroy(gameObject);
+        }
+           
+        //}
     }
 }

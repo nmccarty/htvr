@@ -34,7 +34,7 @@ public class ShootingScript : VRTK_InteractableObject
     public override void StartUsing(GameObject usingObject)
     {
         fireBullet();
-        Debug.Log("I was here");
+        //Debug.Log("I was here");
     }
 
 }
